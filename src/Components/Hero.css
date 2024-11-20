@@ -1,0 +1,80 @@
+/* HERO SECTION */
+.wildrobotimg {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+.button-overlay {
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.hero-title {
+    font-size: 60px;
+    font-family: 'helvetica';
+    font-weight: bold;
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+}
+
+.getstarted-button {
+    padding: 20px 35px;
+    font-size: 21px;
+    font-weight: bold;
+    font-family: 'helvetica';
+    background-color: #ffaa21;
+    color: #111111;
+    border-radius: 50px;
+    border: none;
+    margin-left: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.getstarted-button:hover {
+    box-shadow: 0 0px 25px #ffaa21;
+    transform: translateY(-4px);
+}
+
+.email-input {
+    padding: 20px 35px;
+    font-size: 20px;
+    font-family: 'helvetica';
+    font-weight: bold;
+    color: #000000;
+    border-radius: 50px;
+    backdrop-filter: blur(10px);
+    background-color: #fff2d5eb;
+    border: 4px solid #ffaa21;
+    width: 100%;
+    max-width: 500px;
+}
+
+.hero-email ::placeholder {
+    color: #2b1a006f;
+    font-size: 20px;
+    font-family: 'helvetica';
+    font-weight: bold;
+}
+
+.hero-email {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.text-signup {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+    padding: 0 20px;
+}
