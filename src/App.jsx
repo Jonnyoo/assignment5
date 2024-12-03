@@ -1,20 +1,25 @@
 import { useState } from 'react'
 import './App.css'
-import Header from './Components/Header.jsx'
-import Hero from './Components/Hero.jsx'
-import Feature from './Components/Feature.jsx'
-import Footer from './Components/Footer.jsx'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomeView from "./Views/HomeView.jsx";
+import RegisterView from "./Views/RegisterView.jsx";
+import LoginView from "./Views/LoginView.jsx";
+import MoviesView from "./Views/MoviesView.jsx";
+import DetailMovieView from "./Views/DetailView.jsx";
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <div>
-      <Header/>
-      <Hero/>
-      <Feature/>
-      <Footer/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeView />} />
+        <Route path="/register" element={<RegisterView />} />
+        <Route path="/login" element={<LoginView />} />
+        <Route path="/movies" element={<MoviesView />}>
+          <Route path=":id" element={<DetailMovieView />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   )
 }
 

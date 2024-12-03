@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Genres from "./components/Genres.jsx"
+import Genres from "../Components/Genres.jsx"
 import "./HomeView.css";
 
 function HomeView() {
@@ -46,6 +46,7 @@ function HomeView() {
       setMovies(threeMovies);
     })();
   }, []);
+  console.log("working");
 
   return (
     <div className="hero">
