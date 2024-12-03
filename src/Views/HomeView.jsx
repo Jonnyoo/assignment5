@@ -2,7 +2,11 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Genres from "../Components/Genres.jsx"
+import Header from "../Components/Header.jsx"
+import Hero from "../Components/Hero.jsx"
+import Footer from "../Components/Footer.jsx"
 import "./HomeView.css";
+import GenreView from "./GenreView.jsx";
 
 function HomeView() {
   const [movies, setMovies] = useState([]);
@@ -50,29 +54,11 @@ function HomeView() {
 
   return (
     <div className="hero">
-      <div className="overlay"></div>
-      <header>
-        <div className="buttons">
-          <Link to={`/register`} className="button">Register</Link>
-          <Link to={`/login`} className="button">Login</Link>
-        </div>
-      </header>
-      <div className="hero-content">
-        <h1>Unlimited movies, TV shows, and more.</h1>
-        <p>Watch anywhere. Cancel anytime.</p>
-      </div>
-      <div>
-        {movies.map((movie) => (
-          <div key={movie.id} className="movie-card" onClick={() => { loadMovie(movie.id) }}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className="movie-poster"
-            />
-          </div>
-        ))}
-      </div>
+    <Header />
+    <Hero />
+    <GenreView />
       <Genres genresList={genres} />
+      <Footer />
     </div>
   )
 }
