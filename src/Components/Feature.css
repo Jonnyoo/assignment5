@@ -4,13 +4,15 @@
 .popular-movies {
     padding: 20px;
     margin-inline: 20px;
+    margin-top: 20px; /* Add margin to create space below the hero section */
 }
 
 .movie-card {
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
-    gap: 30px;
+    gap: 35px;
+    margin-top: 10px;
 }
 
 .movie-img {
@@ -29,12 +31,9 @@
     transform: translateY(-8px);
 }
 
-
-
-
 .movie-container {
     position: relative;
-    max-width: 250px;
+    max-width: 300px;
 }
 
 .rent-button {
@@ -57,8 +56,8 @@
 
 .movie-title {
     font-family: 'helvetica';
-    font-size: 16px;
-    color: #ffffff;
+    font-size: 20px;
+    color: #ffffffc3;
     font-weight: normal;
     margin-top: 10px;
 }

@@ -1,68 +1,55 @@
-import { Link } from "react-router-dom";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import Genres from "../Components/Genres.jsx"
-import "./HomeView.css";
+import { useParams, Link } from "react-router-dom";
+import "./GenreView.css";
 
 function GenreView() {
-  const [movies, setMovies] = useState([]);
-  const genres = [
-    {
-      genre: "Action",
-      id: 28
-    },
-    {
-      genre: "Family",
-      id: 10751,
-    },
-    {
-      genre: "Science Fiction",
-      id: 878
-    }
-  ]
-
-  function shuffle(array) {
-    let currentIndex = array.length;
-
-    while (currentIndex != 0) {
-      let randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-  }
-
-  useEffect(() => {
-    (async function getMovies() {
-      const response = await axios.get(
-        `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_KEY}`
-      );
-      const threeMovies = [];
-      shuffle(response.data.results);
-      threeMovies.push(response.data.results.pop());
-      threeMovies.push(response.data.results.pop());
-      threeMovies.push(response.data.results.pop());
-      setMovies(threeMovies);
-    })();
-  }, []);
-  console.log("working");
+    const { genre_id } = useParams();
+    const [movies, setMovies] = useState([]);
+    const [page, setPage] = useState(1);
+  
+    useEffect(() => {
+      async function fetchMovies() {
+        try {
+          const response = await axios.get(
+            `https://api.themoviedb.org/3/discover/movie?api_key=${import.meta.env.VITE_TMDB_KEY}&with_genres=${genre_id}&page=${page}`
+          );
+          console.log(response.data); // Log the response data
+          console.log(genre_id);
+          setMovies(response.data.results);
+        } catch (error) {
+          console.error("Error fetching movies:", error);
+        }
+      }
+      fetchMovies();
+    }, [genre_id, page]);
 
   return (
     <div className="hero">
-      <div>
-        {movies.map((movie) => (
-          <div key={movie.id} className="movie-card" onClick={() => { loadMovie(movie.id) }}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-              alt={movie.title}
-              className="movie-poster"
-            />
-          </div>
-        ))}
+      <h2>Movies in Genre</h2>
+      <div className="genre-view-container">
+        {movies.length > 0 ? (
+          movies.map((movie) => (
+            <div key={movie.id} className="genre-view-item">
+              <Link to={`/movies/details/${movie.id}`}>
+                {movie.poster_path ? (
+                  <img
+                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                    alt={movie.title}
+                    className="genre-view-image"
+                  />
+                ) : (
+                  <div className="no-image">No Image Available</div>
+                )}
+              </Link>
+            </div>
+          ))
+        ) : (
+          <p>No movies available for this genre.</p>
+        )}
       </div>
     </div>
-  )
+  );
 }
 
 export default GenreView;

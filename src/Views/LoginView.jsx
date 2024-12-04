@@ -10,8 +10,8 @@ function LoginView() {
 
   function login(event) {
     event.preventDefault();
-    if (password === "iloveyou") {
-      navigate('/movies/all');
+    if (password === "mango") {
+      navigate('/movies');
     } else {
       alert("Wrong password!");
     }

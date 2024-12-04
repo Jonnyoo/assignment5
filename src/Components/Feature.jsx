@@ -1,68 +1,88 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import Genres from "./Genres.jsx"
 import './Feature.css'
 
 const Feature = () => {
+    const [movies, setMovies] = useState([]);
+    const genres = [
+        {
+            genre: "Action",
+            id: 28
+        },
+        {
+            genre: "Family",
+            id: 10751,
+        },
+        {
+            genre: "Science Fiction",
+            id: 878
+        },
+        {
+            genre: "Thriller",
+            id: 53
+        },
+        {
+            genre: "Adventure",
+            id: 12
+        },
+        {
+            genre: "Animation",
+            id: 16
+        }
+    ]
+
+    function shuffle(array) {
+        let currentIndex = array.length;
+
+        while (currentIndex != 0) {
+            let randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            [array[currentIndex], array[randomIndex]] = [
+                array[randomIndex], array[currentIndex]];
+        }
+    }
+
+    useEffect(() => {
+        (async function getMovies() {
+            const response = await axios.get(
+                `https://api.themoviedb.org/3/movie/now_playing?api_key=${import.meta.env.VITE_TMDB_KEY}`
+            );
+            const sixMovies = [];
+            shuffle(response.data.results);
+            sixMovies.push(response.data.results.pop());
+            sixMovies.push(response.data.results.pop());
+            sixMovies.push(response.data.results.pop());
+            sixMovies.push(response.data.results.pop());
+            sixMovies.push(response.data.results.pop());
+            sixMovies.push(response.data.results.pop());
+            setMovies(sixMovies);
+        })();
+    }, []);
+
     return (
         <div>
             <div className="featured-movies">
-                <h2 id="featured-movies" className="moviesection-title">Featured Movies</h2>
-                <div className="movie-card">
-                    {[
-                        { src: "src/images/wildrobotposter.jpeg", title: "The Wild Robot" },
-                        { src: "src/images/dune2poster.png", title: "Dune: Part Two" },
-                        { src: "src/images/pacificrimposter.png", title: "Pacific Rim Uprising" },
-                        { src: "src/images/batmanposter.png", title: "Batman" },
-                        { src: "src/images/titanicposter.png", title: "Titanic" },
-                        { src: "src/images/walleposter.png", title: "WALL-E" }
-                    ].map((movie, index) => (
-                        <div className="movie-container" key={index}>
+            <h2 id="featured-movies" className="moviesection-title">Now Playing</h2>
+            <div className="movie-card">
+                {movies.map((movie) => (
+                    <div key={movie.id} className="movie-card" onClick={() => { loadMovie(movie.id) }}>
+                        <div className="movie-container">
                             <button className="rent-button">Rent</button>
-                            <img className="movie-img" src={movie.src} alt="movie image" />
+                            <img
+                                src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+                                alt={movie.title}
+                                className="movie-img"
+                            />
                             <h3 className="movie-title">{movie.title}</h3>
                         </div>
-                    ))}
+                    </div>
+                ))}
                 </div>
             </div>
-
-            <div className="popular-shows">
-                <h2 id="popular-shows" className="moviesection-title">Popular Shows</h2>
-                <div className="movie-card">
-                    {[
-                        { src: "src/images/brooklyn99poster.png", title: "Brooklyn Nine-Nine" },
-                        { src: "src/images/gameofthronesposter.png", title: "Game of Thrones" },
-                        { src: "src/images/lethalweaponposter.png", title: "Lethal Weapon" },
-                        { src: "src/images/strangerthingsposter.png", title: "Stranger Things" },
-                        { src: "src/images/peakyblindersposter.png", title: "Peaky Blinders" },
-                        { src: "src/images/thelastofusposter.png", title: "The Last of Us" }
-                    ].map((show, index) => (
-                        <div className="movie-container" key={index}>
-                            <button className="rent-button">Rent</button>
-                            <img className="movie-img" src={show.src} alt="movie image" />
-                            <h3 className="movie-title">{show.title}</h3>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <div className="popular-movies">
-                <h2 id="popular-movies" className="moviesection-title">Popular Movies</h2>
-                <div className="movie-card">
-                    {[
-                        { src: "src/images/barbieposter.png", title: "Barbie" },
-                        { src: "src/images/jurassicworldposter.png", title: "Jurassic World: Fallen Kingdom" },
-                        { src: "src/images/suzumeposter.png", title: "Suzume" },
-                        { src: "src/images/500daysofsummerposter.png", title: "500 Days of Summer" },
-                        { src: "src/images/beemovieposter.png", title: "The Bee Movie" },
-                        { src: "src/images/deadpoolwolverineposter.png", title: "Deadpool & Wolverine" }
-                    ].map((movie, index) => (
-                        <div className="movie-container" key={index}>
-                            <button className="rent-button">Rent</button>
-                            <img className="movie-img" src={movie.src} alt="movie image" />
-                            <h3 className="movie-title">{movie.title}</h3>
-                        </div>
-                    ))}
-                </div>
-            </div>
+            {/* <Genres genresList={genres} /> */}
         </div>
     );
 };

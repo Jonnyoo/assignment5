@@ -1,17 +1,17 @@
-import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import './Header.css'
 
 function Header() {
 
     return (
-        <div class="header">
-            <h1 class="header-title">MANGOFLIX</h1>
-            <div class="nav-links">
-                <a href="#featured-movies" class="nav-link">Featured</a>
-                <a href="#popular-shows" class="nav-link">Shows</a>
-                <a href="#popular-movies" class="nav-link">Movies</a>
+        <div className="header">
+            <h1 className="header-title"><Link to={`/`} className="header-title">MANGOFLIX</Link></h1>
+            <div className="nav-links">
+                <a href="#featured-movies" className="nav-link">Featured</a>
+                <a href="#popular-shows" className="nav-link">Shows</a>
+                <a href="#popular-movies" className="nav-link">Movies</a>
             </div>
-            <button class="buttons" type="button" onclick="alert('Signed in')">Sign in</button>
+            <button className="buttons" type="button" ><Link to={`/login`} className="button">Login</Link></button>
         </div>
     )
 }

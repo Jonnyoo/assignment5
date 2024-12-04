@@ -4,16 +4,17 @@
     font-size: 24px;
     color: #ffaa21;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .header {
     max-width: 1000px;
-    height: 50px;
+    height: 70px;
     position: fixed;
     top: 15px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: rgba(19, 23, 26, 0.65);
+    background-color: rgba(35, 41, 45, 0.65);
     border-radius: 50px;
     display: flex;
     justify-content: space-between;
@@ -22,7 +23,7 @@
     z-index: 1000;
     gap: 70px;
     backdrop-filter: blur(10px);
-    border: 3px solid rgba(255, 161, 29, 0.908);
+    border: 1px solid rgba(0, 0, 0, 0.179);
 }
 
 .header button {
@@ -35,6 +36,12 @@
     font-size: 15px;
     font-weight: bold;
     margin-right: -7px;
+    text-decoration: none;
+}
+
+.button {
+    text-decoration: none;
+    color: inherit;
 }
 
 .nav-links {
@@ -61,6 +68,7 @@ h2 {
     font-size: 24px;
     color: #ffffff;
     font-weight: bold;
+    text-decoration: none;
 }
 
 .header-spacing {
