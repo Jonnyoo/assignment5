@@ -1,0 +1,35 @@
+.app-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin-top: 180px;
+}
+
+.genre-container {
+    display: flex;
+    flex: 1;
+    padding-left: 50px;
+    padding-top: 50px;
+}
+
+.genre {
+    display: flex;
+}
+
+.genre-list {
+    list-style-type: none;
+    width: 20%;
+    padding: 30px;
+    background-color: #33373b;
+    border-right: 1px solid #222427;
+    border-radius: 20px;
+}
+
+.genre-movies {
+    width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
