@@ -60,6 +60,18 @@ function GenreView() {
         ) : (
           <p>No movies available for this genre.</p>
         )}
+        <button
+          className="genre-view-button"
+          onClick={() => setPage((p) => Math.max(p - 1, 1))}
+        >
+          Previous
+        </button>
+        <button
+          className="genre-view-button"
+          onClick={() => setPage((p) => p + 1)}
+        >
+          Next
+        </button>
       </div>
     </div>
   );

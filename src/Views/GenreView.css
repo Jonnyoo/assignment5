@@ -66,7 +66,7 @@
 }
 
 .genre-view-pagination-button {
-    background-color: #007bff;
+    background-color: #ffaa21;
     border: none;
     color: white;
     padding: 10px 15px;
@@ -79,7 +79,20 @@
 }
 
 .genre-view-pagination-button:hover {
-    background-color: #0056b3;
+    background-color: #ffaa21;
+}
+
+.genre-view-button {
+    background-color: #ffaa21;
+    border: none;
+    color: rgb(44, 44, 44);
+    padding: 10px 15px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 15px;
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
 }
 
 @media (max-width: 768px) {
