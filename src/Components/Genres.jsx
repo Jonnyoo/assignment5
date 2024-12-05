@@ -7,17 +7,15 @@ function Genres(props) {
     return (
         <div>
             <ul>
-                {
-                    props.genresList.map((item) => {
-                        return (
-                            <li key={item.id}>
-                                <Link to={`/movies/genre/${item.id}`}>
-                                    <button>{item.genre}</button>
-                                </Link>
-                            </li>
-                        )
-                    })
-                }
+                {props.genresList.map((item) => {
+                    return (
+                        <li key={item.id}>
+                            <Link to={`/movies/genre/${item.id}`}>
+                                <button>{item.genre}</button>
+                            </Link>
+                        </li>
+                    )
+                })}
             </ul>
         </div>
     )

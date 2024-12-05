@@ -1,5 +1,5 @@
-import React from 'react';
 import './Footer.css';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -17,7 +17,7 @@ const Footer = () => {
                     <h1 className="footer-signup-title">Sign Up Now</h1>
                     <div className="footer-email">
                         <input className="footer-email-input" type="email" placeholder="Email..." />
-                        <button className="footer-getstarted-button" onClick={() => alert('Signed up!')}>Sign Up</button>
+                        <button className="footer-getstarted-button"><Link to={`/register`} className="footer-getstarted-button">Sign Up</Link></button>
                     </div>
                 </div>
             </div>

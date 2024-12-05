@@ -7,10 +7,10 @@ import "./HomeView.css";
 function HomeView() {
   return (
     <div className="home-view">
-        <Header />
-        <Hero />
-        <Feature />
-        <Footer />
+      <Header />
+      <Hero />
+      <Feature />
+      <Footer />
     </div>
   );
 }

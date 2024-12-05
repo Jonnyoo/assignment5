@@ -1,7 +1,8 @@
-import React from 'react';
 import './LoginView.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import Header from "../Components/Header";
 
 function LoginView() {
 
@@ -19,6 +20,7 @@ function LoginView() {
 
   return (
     <div className="login-container">
+      <Header />
       <div className="form-container">
         <h2>Login to Your Account</h2>
         <form onSubmit={(event) => { login(event) }}>
@@ -30,7 +32,7 @@ function LoginView() {
 
           <button type="submit" className="login-button">Login</button>
         </form>
-        <p className="register-link">New to Netflix? <a href="#">Register now</a></p>
+        <p className="register-link">New to Netflix? <a href="#"><Link to={`/register`} className="register-link">Register Now</Link></a></p>
       </div>
     </div>
   );

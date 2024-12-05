@@ -1,8 +1,6 @@
-/* GenreView.css */
-
 .hero {
     padding: 20px;
-    background-color: #151515;
+    background-color: #15151500;
     color: #fff;
     text-align: center;
 }
@@ -14,7 +12,8 @@
     gap: 20px;
     margin-top: 20px;
     padding: 10px;
-    background-color: #151515;
+    background-color: #15151500;
+    max-width: 900px;
 }
 
 .genre-view-item {

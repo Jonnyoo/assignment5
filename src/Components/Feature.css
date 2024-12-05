@@ -4,7 +4,7 @@
 .popular-movies {
     padding: 20px;
     margin-inline: 20px;
-    margin-top: 20px; /* Add margin to create space below the hero section */
+    margin-top: 20px;
 }
 
 .movie-card {
@@ -54,7 +54,7 @@
 }
 
 
-.movie-title {
+.movie-title-name {
     font-family: 'helvetica';
     font-size: 20px;
     color: #ffffffc3;

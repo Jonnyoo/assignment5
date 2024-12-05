@@ -29,9 +29,9 @@ function Hero() {
                 <div className="featured-content"
                     style={{
                         backgroundImage: `linear-gradient(to bottom, rgba(0, 0, 0, 0), #151515), url('https://image.tmdb.org/t/p/w1280${movie.backdrop_path}')`,
-                        backgroundSize: 'cover', // Ensures the image covers the entire div
-                        backgroundPosition: 'center', // Centers the image
-                        backgroundRepeat: 'no-repeat' // Prevents the image from repeating
+                        backgroundSize: 'cover',
+                        backgroundPosition: 'center',
+                        backgroundRepeat: 'no-repeat'
                     }}
                 >
                     <h1 className="featured-title">{movie.original_title}</h1>

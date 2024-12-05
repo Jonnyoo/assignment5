@@ -74,3 +74,11 @@ h2 {
 .header-spacing {
     margin-inline: 40px;
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex: 1;
+}

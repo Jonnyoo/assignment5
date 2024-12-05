@@ -6,29 +6,31 @@
 
 .genre-list li {
     margin-bottom: 10px;
+    list-style-type: none;
 }
 
 .genre-list button {
     width: 100%;
     padding: 10px;
-    background-color: #ffaa21; /* Mango color */
-    color: #fff;
+    background-color: #ffaa21;
+    color: #363434;
     border: none;
-    border-radius: 5px;
+    border-radius: 9px;
     cursor: pointer;
     font-family: 'helvetica';
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s;
     margin: 10px;
+    list-style-type: none;
 }
 
 .genre-list button:hover {
-    background-color: #e6951b; /* Slightly darker mango color */
-    transform: translateY(-2px);
+    box-shadow: 0 0px 15px #ffaa21;
+    transform: translateY(-4px);
 }
 
 .genre-list button:active {
-    background-color: #cc7f17; /* Even darker mango color for active state */
-    transform: translateY(0);
+    box-shadow: 0 0px 15px #ffaa21;
+    transform: translateY(0px);
 }
